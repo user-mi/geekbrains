@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+class Car 
+{
+protected: 
+    string company;
+    string model;
+public:
+    Car(string c, string m) : company(c), model(m)
+    {
+        cout << "Car. Company " << c << " Model " << m << endl;
+    }
+};
+
+class PassengerCar : virtual public Car
+{
+public:
+    PassengerCar(string c, string m) : Car(c, m)
+    {
+        cout << "Passenger Car. Company " << c << " Model " << m << endl;
+    }
+};
+
+class Bus : virtual public Car
+{
+public:
+    Bus(string c, string m) : Car(c, m)
+    {
+        cout << "Bus. Company " << c << " Model " << m << endl;
+    }
+};
+class Minivan: public PassengerCar, public Bus
+{
+public:
+    Minivan(string c, string m) : Car(c, m), PassengerCar(c, m), Bus(c,m)
+    {
+        cout << "Minivan. Company " << c << " Model " << m << endl;
+    }
+};
+
+void line_stars() 
+{
+    cout << "*******************************" << endl;
+}
+
+int main()
+{
+    Car("Volkswagen", "Polo");
+    line_stars();
+    Bus("Ikarus", "C56");
+    line_stars();
+    PassengerCar("Lada", "2107");
+    line_stars();
+    Minivan("Toyota", "Sienna");
+    return 0;
+}
