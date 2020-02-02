@@ -2,55 +2,30 @@
 
 using namespace std;
 
-
 class Figure
-
 {
-
 public:
-
   virtual float area() = 0;
-
 };
-
 
 class Parallelogram : public Figure
-
 {
-
 protected:
-
   float base;
-
   float height;
-
 public:
-
     Parallelogram (float b, float h) : base(b), height(h)
-
   {
-
     base = b;
-
     height = h;
-
   }
-
   float getHeight() {return height;}
-
   float getBase() {return base;}
-
   float area ()
-
   {
-
     return base * height;
-
   }
-
 };
-
-
 
 class Circle:public Figure
 {
